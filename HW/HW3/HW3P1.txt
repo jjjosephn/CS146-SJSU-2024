@@ -1,0 +1,30 @@
+HW3
+Problem 1:
+
+Insertion-Sort(A,n){
+for i = 1 to n:
+	key = A[i]
+	j = i - 1
+	while j >= 0 and A[j] = key
+		A[j + 1] = A[j]
+		j = j - 1
+	A[j + 1] = key
+
+Complexity Analysis:
+Using an unsorted array: [6, 5, 4, 3, 2, 1]
+If we were to sort the array it will go like"
+	1. 6, 5, 4, 3, 2, 1	Key 2: with 1 comparison and 1 movement = 2
+	2. 5, 6, 4, 3, 2, 1	Key 3: with 2 comparisons and 2 movements = 4
+	3. 4, 5, 6, 3, 2, 1	Key 4: with 3 comparisons and 3 movements = 6
+	4. 3, 4, 5, 6, 2, 1	Key 5: with 4 comparisons and 4 movements = 8
+	5. 2, 3, 4, 5, 6, 1	Key 6: with 5 comparisons and 5 movements = 10
+	6. 1, 2, 3, 4, 5, 6 	Key 7: with 6 comparisons and 6 movements = 12
+				Key n: with (n-1) comparisons and (n-1) movements = 2(n-1)
+
+	Time complexity = 2(1) + 2(2) + 2(3) + ... 2(n-1) = 2(1 + 2 + 3 + ... n-1)
+			= 2 * n(n-1) / 2
+			= n^2 - n
+			= O(n^2)
+
+
+
