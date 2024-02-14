@@ -1,0 +1,51 @@
+HW4
+
+Problem 2:
+
+MATRIX_MULTIPLY(A, B): 
+  if columns(A) ≠ rows(B): 
+    raise ValueError("Matrix multiplication is not defined.") 
+
+  rows_A ← number of rows in A 
+  cols_A ← number of columns in A 
+  cols_B ← number of columns in B 
+  result ← matrix of size rows_A x cols_B filled with zeros 
+
+  for i from 1 to rows_A do: 
+    for j from 1 to cols_B do: 
+    sum ← 0 
+      for k from 1 to cols_A do: 
+        sum ← sum + A[i][k] * B[k][j] 
+      result[i][j] ← sum return result
+
+
+Best Case: O(1) because if coloumn A doesn't equal to row B, then it'll raise a value error
+
+Worst Case: O(N^3) because
+	   Using the exmaple: 
+	   A = 3 x 2 (3 columns and 2 rows)
+	   [3 4]	
+	   [7 2]	
+	   [5 9]
+
+	   B = 2 x 3 (2 columns and 3 rows)
+	   [3 1 5]	
+	   [6 9 7]	
+
+	   result = A x B = 3 x 3
+	   [33 39 43]
+	   [33 25 49]
+	   [69 86 88]
+
+	   f(n) = i∑j∑k∑ (1)		(assume upperbound = n-1, and lower bound = 0)
+	                  = i∑j∑ (n-1-0)+1 = n	(upperbound - lowerbound - # of execution)
+	                  = n(i∑ (n-1-0)+1 = n
+	                  = n^2 ((n-1-0)+1) = n^2(n)
+	                  = O(n^3)
+		
+	   and since there's nested loops, it will show N * N, and since theres 3 loops it'll be
+	   N * N * N = O(N^3)
+
+Average Case: O(N^3), same reasoning applies just like the worst case
+
+	
