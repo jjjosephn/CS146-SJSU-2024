@@ -1,0 +1,11 @@
+Lab 3
+Problem 1:
+1. n^3 
+2. n^2logn
+3. 2^(root(n))
+4. 2^(2n)
+
+Problem 2:
+Best case: O(1)
+Worst case: O(root(n))
+Average case: O(root(n))
