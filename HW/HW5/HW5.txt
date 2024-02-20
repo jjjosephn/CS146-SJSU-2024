@@ -1,0 +1,74 @@
+HW 5
+Problem 1:
+
+1.      T(N) = 2T(N-1) + 1  
+	T(N-1) = 2T[(N-1)-1] + 1
+	       = 2T(N-2) + 1
+	T(N) = 2 [2T(N-2) + 1] + 1 
+	     = 4T(N-2) + 2 + 1		// first time
+	T(N-2) = 2T(N-1-2) + 1
+	       = 2T(N-3) + 1
+	T(N) = 2[4T(N-3) + 2 + 1] + 1
+	     = 8T(N-3) + 4 + 2 + 1	// second time
+	T(N) = 2^kT(N-K) + 2^(K-1) + 2^(K-2) +...	
+	T(N) = 2^NT(N-N) + 2^N - 1	// assuming N=K
+	T(N) = 2^N(1) + 2^N - 1
+	T(N) = 2^(N+1) - 1
+	T(N) = O(2^N)
+
+2. 	T(N) = 3T(N-1) + n
+	T(N-1) = 3T(N-1-1) + n
+	       = 3T(N-2) + n		
+	T(N) = 3[3T(N-2) + n] + n
+	     = 9T(N-2) + 3n + n		//first time
+	T(N-2) = 3T(N-2-1) + n
+	       = 3T(N-3) + n		
+	T(N) = 9[3T(N-3) + n] + n
+	     = 27T(N-3) + 9n + 3n + n	//second time
+	T(N) = 3^3T(N-3) + 3^2n + 3^1n + n
+	T(N) = 3^KT(N-K) + 3^(K-1)n + 3^(K-2)n +...
+	T(N) = 3^NT(N-N) 
+	T(N) = 3^NT(0)
+	T(N) = 3^N
+	T(N) = O(3^N)
+
+3.	T(N) = 9T(N/2) + n^2
+	a = 9 >= 1
+	b = 2 > 1
+	O(N^(logb(a)) = O(N^(log2(9)-e)) where e = 1
+	T(N) = theta(N^(log2(9)))
+
+4.	T(N) = 100T(N/2) + n^(log2cn + 1)  (c is a constant)
+	a = 100 >= 1
+	b = 2 > 1
+	f(n) = n^(log2cn + 1)
+	T(N) = theta(N^(log2(N)))
+
+5. 	T(N) = 4T(N/2) + n^2logn
+	a = 4 >= 1
+	b = 2 > 1
+	f(n) = n^2logn
+	T(N) = theta(N^2logn)
+
+6. 	T(N) = 5T(N/2) + n2/logn
+	a = 5 >= 1
+	b = 2 > 1
+	f(n) = n^2logn
+	T(N) = theta(N^2logn)
+
+Problem 2:
+
+yetAnotherFunc(n): 
+  if n > 1: 
+    for(i=0;i<10n;i++)
+      doSomething;
+    yetAnotherFunc(n/2);
+    yetAnotherFunc(n/2);
+	
+
+takes in an integer and runs through a loop 10x that integer. Then calls it 2 more times but with (n/2)
+recurrence relation = T(N) = O(N) + 2T(N/2)
+		    a = 2 >= 1
+		    b = 2 > 1
+		    f(n) = O(N)
+		    T(N) = theta(nlogn)
